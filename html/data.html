@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemesanan - Kopi Senja</title>
+    <link rel="icon" href="/img/Vintage Logo Kedai Kopi Simpel.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-coffee fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-cup-hot me-2"></i>Kopi Senja
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="produk.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="data.html">Pemesanan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header d-flex align-items-center">
+        <div class="container text-center text-white">
+            <h1 class="display-4 fw-bold">Pemesanan</h1>
+            <p class="lead">Form Pemesanan & Data Pesanan</p>
+        </div>
+    </section>
+
+    <div class="container mt-5 pt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2 class="mb-4 text-coffee"><i class="bi bi-cart3"></i> Keranjang Belanja</h2>
+            
+            <div id="isi-keranjang" class="card shadow-sm border-0 mb-4 p-3">
+                </div>
+
+            <h4 class="text-end fw-bold mb-4">Total: <span id="total-harga" class="text-coffee">Rp 0</span></h4>
+
+                <div class="card shadow-sm border-0 p-4 mb-5">
+                    <h4 class="mb-3">Informasi Pemesan</h4>
+                    <form id="form-checkout">
+                        <div class="mb-3">
+                            <label class="form-label">Nama Pemesan</label>
+                            <input type="text" id="nama-pembeli" class="form-control" required placeholder="Masukkan nama Anda">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Nomor Meja / Catatan</label>
+                            <input type="text" id="catatan-pembeli" class="form-control" required placeholder="Misal: Meja 1 / Dibungkus">
+                        </div>
+                        <button type="submit" class="btn btn-coffee w-100 py-2 fs-5">
+                        <i class="bi bi-whatsapp"></i> Checkout via WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2026 Kopi Senja - UMKM Kopi Lokal Indonesia</p>
+        </div>
+    </footer>
+
+    <!-- Modal Edit -->
+    <div class="modal fade" id="editModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-coffee text-white">
+                    <h5 class="modal-title">Edit Pesanan</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm">
+                        <input type="hidden" id="editId">
+                        <div class="mb-3">
+                            <label class="form-label">Status Pesanan</label>
+                            <select id="editStatus" class="form-select">
+                                <option value="Pending">Pending</option>
+                                <option value="Diproses">Diproses</option>
+                                <option value="Selesai">Selesai</option>
+                                <option value="Dibatalkan">Dibatalkan</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-coffee" onclick="saveEdit()">Simpan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+    function renderKeranjang() {
+        let keranjang = JSON.parse(localStorage.getItem('keranjangKopiSenja')) || [];
+        let wadahKeranjang = document.getElementById('isi-keranjang');
+        let wadahTotal = document.getElementById('total-harga');
+        let total = 0;
+
+        wadahKeranjang.innerHTML = ''; 
+
+        if(keranjang.length === 0) {
+            wadahKeranjang.innerHTML = '<p class="text-center text-muted my-3">Keranjang Anda masih kosong.</p>';
+            return;
+        }
+
+        keranjang.forEach((item, index) => {
+            let subtotal = item.harga * item.qty;
+            total += subtotal;
+            
+            wadahKeranjang.innerHTML += `
+                <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+                    <div>
+                        <h6 class="mb-0 fw-bold">${item.nama}</h6>
+                        <small class="text-muted">${item.qty} x Rp ${item.harga.toLocaleString('id-ID')}</small>
+                    </div>
+                    <span class="fw-bold">Rp ${subtotal.toLocaleString('id-ID')}</span>
+                </div>
+            `;
+        });
+
+        wadahTotal.innerText = 'Rp ' + total.toLocaleString('id-ID');
+    }
+
+    // Fungsi saat tombol checkout ditekan
+    document.getElementById('form-checkout').addEventListener('submit', function(e) {
+        e.preventDefault(); // Mencegah halaman refresh
+        
+        let keranjang = JSON.parse(localStorage.getItem('keranjangKopiSenja')) || [];
+        if(keranjang.length === 0) {
+            alert("Pilih menu terlebih dahulu!");
+            return;
+        }
+
+        let nama = document.getElementById('nama-pembeli').value;
+        let catatan = document.getElementById('catatan-pembeli').value;
+        let totalAkhir = document.getElementById('total-harga').innerText;
+
+        // 1. Simpan Data ke "Database" Admin (Localstorage)
+        let dataAdmin = JSON.parse(localStorage.getItem('databasePesananSenja')) || [];
+        dataAdmin.push({
+            waktu: new Date().toLocaleString(),
+            nama: nama,
+            catatan: catatan,
+            pesanan: keranjang,
+            total: totalAkhir
+        });
+        localStorage.setItem('databasePesananSenja', JSON.stringify(dataAdmin));
+
+        // 2. Format Pesan Teks untuk WhatsApp
+        let pesanWA = `*Pesanan Baru - Kopi Senja*%0A%0A`;
+        pesanWA += `Nama: ${nama}%0AMeja/Catatan: ${catatan}%0A%0ADaftar Pesanan:%0A`;
+        
+        keranjang.forEach(item => {
+            pesanWA += `- ${item.nama} (x${item.qty})%0A`;
+        });
+        
+        pesanWA += `%0A*Total: ${totalAkhir}*`;
+
+        // 3. Bersihkan keranjang belanja
+        localStorage.removeItem('keranjangKopiSenja');
+
+        // 4. Arahkan ke WhatsApp Admin (Ganti nomor 628... dengan nomor WA aslimu)
+        let nomorWAAdmin = "6281234567890";
+        window.location.href = `https://wa.me/${nomorWAAdmin}?text=${pesanWA}`;
+    });
+
+    // Panggil fungsi saat halaman pertama kali dibuka
+    renderKeranjang();
+</script>
+</body>
+</html>

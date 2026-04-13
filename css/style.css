@@ -1,0 +1,176 @@
+/* Custom CSS untuk Kopi Senja */
+
+/* Warna Custom */
+:root {
+    --coffee-primary: #6F4E37;
+    --coffee-secondary: #8B4513;
+    --coffee-light: #D2691E;
+    --coffee-cream: #F5DEB3;
+}
+
+/* Navbar Custom */
+.bg-coffee {
+    background: linear-gradient(135deg, #6F4E37 0%, #8B4513 100%) !important;
+}
+
+.text-coffee {
+    color: var(--coffee-primary) !important;
+}
+
+.btn-coffee {
+    background: linear-gradient(135deg, #6F4E37 0%, #8B4513 100%);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-coffee:hover {
+    background: linear-gradient(135deg, #5a3f2d 0%, #6b3410 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(111, 78, 55, 0.4);
+}
+
+.btn-outline-coffee {
+    color: var(--coffee-primary);
+    border: 2px solid var(--coffee-primary);
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-coffee:hover {
+    background: var(--coffee-primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.border-coffee {
+    border-color: var(--coffee-primary) !important;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/img/photo-1510972527921-ce03766a1cf1.avif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    margin-top: -76px;
+    padding-top: 76px;
+}
+
+/* Page Header */
+.page-header {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/img/photo-1567310017355-abb57d268c73.avif');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    margin-top: -76px;
+    padding-top: 76px;
+    display: flex;
+    align-items: center;
+}
+
+/* Card Hover Effects */
+.hover-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.hover-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
+}
+
+.product-card {
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(111, 78, 55, 0.3) !important;
+}
+
+.product-card img {
+    transition: transform 0.5s ease;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Gallery Effects */
+.gallery-item {
+    cursor: pointer;
+    height: 250px;
+}
+
+.gallery-img {
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-overlay {
+    background: rgba(111, 78, 55, 0.8);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-item:hover .gallery-img {
+    transform: scale(1.1);
+}
+
+/* Animation Classes */
+.animate-fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+.animate-fade-in-delay {
+    animation: fadeIn 1s ease-in 0.3s both;
+}
+
+.animate-fade-in-delay-2 {
+    animation: fadeIn 1s ease-in 0.6s both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--coffee-primary);
+    border-radius: 5px;
+}

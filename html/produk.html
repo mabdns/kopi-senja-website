@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Kopi Senja</title>
+    <link rel="icon" href="/img/Vintage Logo Kedai Kopi Simpel.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-coffee fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-cup-hot me-2"></i>Kopi Senja
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="produk.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="data.html">Pemesanan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header d-flex align-items-center">
+        <div class="container text-center text-white">
+            <h1 class="display-4 fw-bold">Menu Kami</h1>
+            <p class="lead">Pilihan Kopi Terbaik dari Biji Lokal Indonesia</p>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Kopi Panas -->
+            <h3 class="mb-4 border-start border-4 border-coffee ps-3">Kopi Panas</h3>
+            <div class="row mb-5">
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card h-100 border-0 shadow">
+                        <img src="/img/premium_photo-1669687924558-386bff1a0469.avif" class="card-img-top" alt="Espresso">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0">Espresso</h5>
+                                <span class="badge bg-coffee">Paling Diminati</span>
+                            </div>
+                            <p class="text-muted small">Kopi hitam pekat dari biji arabika pilihan</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-coffee fs-5">Rp 15.000</span>
+                                <button class="btn btn-outline-coffee btn-sm" onclick="pesanProduk('Espresso', 15000)">
+                                    <i class="bi bi-cart-plus"></i> Pesan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card h-100 border-0 shadow">
+                        <img src="/img/photo-1594261956806-3ad03785c9b4.avif" class="card-img-top" alt="Cappuccino">
+                        <div class="card-body">
+                            <h5 class="card-title">Cappuccino</h5>
+                            <p class="text-muted small">Perpaduan espresso, susu steamed, dan foam</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-coffee fs-5">Rp 23.000</span>
+                                <button class="btn btn-outline-coffee btn-sm" onclick="pesanProduk('Cappuccino', 23000)">
+                                    <i class="bi bi-cart-plus"></i> Pesan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card h-100 border-0 shadow">
+                        <img src="/img/Kopi-Tarik.jpg" class="card-img-top" alt="Kopi Tarik">
+                        <div class="card-body">
+                            <h5 class="card-title">Kopi Tarik</h5>
+                            <p class="text-muted small">Kopi tradisional dengan teknik tarik khas</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-coffee fs-5">Rp 22.000</span>
+                                <button class="btn btn-outline-coffee btn-sm" onclick="pesanProduk('Kopi Tarik', 22000)">
+                                    <i class="bi bi-cart-plus"></i> Pesan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kopi Dingin -->
+            <h3 class="mb-4 border-start border-4 border-coffee ps-3">Kopi Dingin</h3>
+            <div class="row mb-5">
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card h-100 border-0 shadow">
+                        <img src="/img/gorenje-blog-refreshing_cold_brew_coffee.jpg" class="card-img-top" alt="Cold Brew">
+                        <div class="card-body">
+                            <h5 class="card-title">Cold Brew</h5>
+                            <p class="text-muted small">Seduhan dingin 12 jam, smooth dan creamy</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-coffee fs-5">Rp 32.000</span>
+                                <button class="btn btn-outline-coffee btn-sm" onclick="pesanProduk('Cold Brew', 32000)">
+                                    <i class="bi bi-cart-plus"></i> Pesan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card h-100 border-0 shadow">
+                        <img src="/img/ICEDLATTE_0_4.webp" class="card-img-top" alt="Ice Latte">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0">Ice Latte</h5>
+                                <span class="badge bg-info">Favorit</span>
+                            </div>
+                            <p class="text-muted small">Espresso dengan susu dingin dan es batu</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-coffee fs-5">Rp 28.000</span>
+                                <button class="btn btn-outline-coffee btn-sm" onclick="pesanProduk('Ice Latte', 28000)">
+                                    <i class="bi bi-cart-plus"></i> Pesan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card h-100 border-0 shadow">
+                        <img src="/img/summernote_image_1648475750.jpg" class="card-img-top" alt="Frappucino">
+                        <div class="card-body">
+                            <h5 class="card-title">Caramel Frappucino</h5>
+                            <p class="text-muted small">Blended kopi dengan saus karamel</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-coffee fs-5">Rp 25.000</span>
+                                <button class="btn btn-outline-coffee btn-sm" onclick="pesanProduk('Caramel Frappucino', 25000)">
+                                    <i class="bi bi-cart-plus"></i> Pesan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Makanan Ringan -->
+            <h3 class="mb-4 border-start border-4 border-coffee ps-3">Makanan Ringan</h3>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card h-100 border-0 shadow">
+                        <img src="/img/culinary_collective_croissants-Recipe-2400x1000-1.jpg" class="card-img-top" alt="Croissant">
+                        <div class="card-body">
+                            <h5 class="card-title">Butter Croissant</h5>
+                            <p class="text-muted small">Pastry renyah dengan mentega berkualitas</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-coffee fs-5">Rp 15.000</span>
+                                <button class="btn btn-outline-coffee btn-sm" onclick="pesanProduk('Butter Croissant', 15000)">
+                                    <i class="bi bi-cart-plus"></i> Pesan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card h-100 border-0 shadow">
+                        <img src="/img/3211427264.jpg" class="card-img-top" alt="Brownies">
+                        <div class="card-body">
+                            <h5 class="card-title">Fudgy Brownies</h5>
+                            <p class="text-muted small">Brownies coklat lembut dan legit</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-coffee fs-5">Rp 20.000</span>
+                                <button class="btn btn-outline-coffee btn-sm" onclick="pesanProduk('Fudgy Brownies', 20000)">
+                                    <i class="bi bi-cart-plus"></i> Pesan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card h-100 border-0 shadow">
+                        <img src="/img/9827-chocolate-chocolate-chip-cookies-i--DDMFS-092-4x3-c8227481fd804270a50256498cf8f05f.jpg" class="card-img-top" alt="Cookies">
+                        <div class="card-body">
+                            <h5 class="card-title">Chocolate Cookies</h5>
+                            <p class="text-muted small">Cookies chocochip homemade</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-coffee fs-5">Rp 15.000</span>
+                                <button class="btn btn-outline-coffee btn-sm" onclick="pesanProduk('Chocolate Cookies', 15000)">
+                                    <i class="bi bi-cart-plus"></i> Pesan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2026 Kopi Senja - UMKM Kopi Lokal Indonesia</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    // Fungsi untuk menambah item ke keranjang belanja
+    function pesanProduk(nama, harga) {
+        // Ambil data keranjang saat ini dari penyimpanan browser, atau buat array kosong jika belum ada
+        let keranjang = JSON.parse(localStorage.getItem('keranjangKopiSenja')) || [];
+
+        // Cek apakah produk tersebut sudah ada di keranjang
+        let produkAda = keranjang.find(item => item.nama === nama);
+        
+        if (produkAda) {
+            produkAda.qty += 1; // Jika sudah ada, tambah jumlahnya
+        } else {
+            keranjang.push({ nama: nama, harga: harga, qty: 1 }); // Jika belum ada, masukkan sebagai item baru
+        }
+
+        // Simpan kembali ke penyimpanan browser
+        localStorage.setItem('keranjangKopiSenja', JSON.stringify(keranjang));
+        
+        // Tampilkan notifikasi
+        alert(nama + " berhasil ditambahkan ke keranjang!");
+    }
+</script>
+</body>
+</html>
